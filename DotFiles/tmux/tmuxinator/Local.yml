@@ -1,0 +1,24 @@
+# ~/.tmuxinator/Local.yml
+# you can make as many tabs as you wish...
+
+project_name: Local
+project_root: ~/
+tabs:
+  - Dashboard:
+      layout: f394,272x66,0,0[272x58,0,0{136x58,0,0,1,135x58,137,0[135x25,137,0,19,135x16,137,26,20,135x15,137,43,24]},272x7,0,59,6]
+      panes:
+        - irssi
+        - sudo htop
+        - sudo iftop
+        - 
+        - sudo tail -f /var/log/system.log | colorize
+  - shell:
+      layout: 2285,272x66,0,0[272x54,0,0,73,272x11,0,55,79]
+      panes:
+        - clear
+        - clear
+  - root:
+      layout: 2285,272x66,0,0[272x54,0,0,73,272x11,0,55,79]
+      panes:
+        - sudo -s ; clear
+        - sudo -s ; clear

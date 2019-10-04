@@ -1,0 +1,56 @@
+# SSH Config file. Automatically created by
+# Fred's awesome ssh config generator.
+# Do not edit directly!
+#
+ControlMaster auto
+ControlPath ~/.ssh/tmp/%r@%h-%p
+ControlPersist 6000
+
+Host *
+  GSSAPIAuthentication no
+  StrictHostKeyChecking no
+  ForwardX11Trusted yes
+  ForwardAgent yes
+  ServerAliveInterval 120
+
+Host github.com
+  User azafred
+
+Host *.local
+  User fred
+
+Host *.techunix.com
+  User fred
+
+Host agmanemon
+  HostName 128.3.3.24
+  User fpvassard
+  IdentityFile ~/.ssh/lbl_rsa
+
+Host meltdown.doomdns.org
+  Port 2225
+  User fred
+  IdentityFile ~/.ssh/my_id_rsa
+
+Host sdg0 syd0 dal0 sin0 fra0
+    User fred
+    Hostname %h.meraki.com
+    IdentityFile ~/.ssh/meraki
+
+Host dev
+    User fred
+    Hostname dev131.meraki.com
+    IdentityFile ~/.ssh/meraki
+
+Host dev1??
+    User fred
+    Hostname %h.meraki.com
+    IdentityFile ~/.ssh/meraki
+
+Host hogwarts
+    User fred
+    Hostname meltdown.techunix.com
+    Port 2224
+    IdentityFile ~/.ssh/my_id_rsa
+
+

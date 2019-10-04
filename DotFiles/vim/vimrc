@@ -1,0 +1,186 @@
+syntax enable
+set mouse=a
+set nocompatible
+set background=dark
+set cpoptions=aABceFsmq
+filetype plugin indent on
+set autochdir
+set backspace=indent,eol,start
+set fileformats=unix,mac,dos
+set iskeyword+=_,$,@,%,#
+set noerrorbells
+set whichwrap=b,s,h,l,<,>,~,[,]
+set wildmenu
+set cursorcolumn
+set cursorline
+set incsearch
+set laststatus=2
+set linespace=0
+set list
+set listchars=tab:>-,trail:-
+set matchtime=5
+set number
+set numberwidth=5
+set report=0
+set ruler
+set scrolloff=10
+set showcmd
+set showmatch
+set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]%{fugitive#statusline()}
+set expandtab
+set formatoptions=rq
+set ignorecase
+set infercase
+set nowrap
+set smartcase
+set smarttab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=8
+set foldenable
+set foldmarker={,}
+set foldmethod=marker
+set foldlevel=100
+set foldopen=block,hor,mark,percent,quickfix,tag
+set autoread
+runtime macros/matchit.vim
+
+let perl_extended_vars=1
+let b:match_ignorecase = 1
+let g:go_version_warning = 0
+let g:indent_guides_guide_size = 1
+let g:indent_guides_color_change_percent = 3
+let g:indent_guides_enable_on_vim_startup = 1
+call pathogen#infect()
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+autocmd vimenter * NERDTree | wincmd p
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+nmap ,bf !!boxes -d tjc -s 75<CR>
+vmap ,bf !boxes -d tjc -s 75<CR>
+nmap ,bx !!boxes -a c -d shell -s 40<CR>
+vmap ,bx !boxes -a c -d shell -s 40<CR>
+let mapleader = ','
+:let g:notes_directory = '~/Dropbox/todo'
+let NERDTreeWinPos = 'right'
+let NERDTreeMinimalUI=1
+let NERDChristmasTree=1
+let g:pyflakes_use_quickfix = 0
+let g:pep8_map='<leader>8'
+map <leader>g :GundoToggle<CR>
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menuone,longest,preview
+map <leader>j :RopeGotoDefinition<CR>
+map <leader>r :RopeRename<CR>
+map <leader>n :NERDTreeToggle<CR>
+nmap <leader>a <Esc>:Ack!
+map <C-t><up> :tabr<cr>
+map <C-t><down> :tabl<cr>
+map <C-t><left> :tabp<cr>
+map <C-t><right> :tabn<cr>
+
+let g:airline_powerline_fonts = 1
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = {
+            \ 'dir':  '\v[\/]\.(git_backupt|hg|svn)$',
+            \ 'file': '\v\.(exe|so|dll)$',
+            \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+            \ }
+let g:ctrlp_user_command = 'find %s -type f' 
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+augroup reload_vimrc " {
+        autocmd!
+            autocmd BufWritePost $MYVIMRC source $MYVIMRC
+        augroup END " }
+
+nnoremap <silent> <Leader>df :call DiffToggle()<CR>
+
+function! DiffToggle()
+    if &diff
+        diffoff
+    else
+        diffthis
+    endif
+:endfunction
+
+" Git commits.
+autocmd FileType gitcommit setlocal spell
+autocmd FileType python set expandtab
+vmap Q gq
+nmap Q gqap
+:set diffopt=iwhite
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+
+call plug#begin('~/.vim/plugged')
+
+" Make sure you use single quotes
+Plug 'https://github.com/scrooloose/nerdtree.git'
+Plug 'https://github.com/scrooloose/nerdtree-git-plugin.git'
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
+
+" Any valid git URL is allowed
+Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+
+" On-demand loading
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+
+" Using a non-master branch
+" Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+
+" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
+Plug 'fatih/vim-go', { 'tag': '*' }
+Plug 'vim-scripts/indentpython.vim'
+Plug 'jmcantrell/vim-virtualenv'
+Plug 'godlygeek/tabular'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'junegunn/fzf'
+Plug 'chase/vim-ansible-yaml'
+Plug 'b4b4r07/vim-ansible-vault'
+Plug 'jamessan/vim-gnupg'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-surround'
+Plug 'tomtom/tcomment_vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'Valloric/YouCompleteMe'
+
+" Initialize plugin system
+call plug#end()
+
+" NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
+call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
+call NERDTreeHighlightFile('rb', 'Magenta', 'none', '#ff00ff', '#151515')
+call NERDTreeHighlightFile('sh', 'Red', 'none', '#ff00ff', '#151515')
+map ; :FZF<CR>
+" END

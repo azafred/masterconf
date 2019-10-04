@@ -1,0 +1,43 @@
+antigen use oh-my-zsh
+# Load various lib files
+antigen bundle robbyrussell/oh-my-zsh lib/
+
+
+antigen bundles <<EOBUNDLES
+    git
+    git-extras
+    tmux
+    tmuxinator
+    zsh-users/zsh-syntax-highlighting
+    rupa/z
+    ssh-agent
+    pip
+    python
+    virtualenv
+    zsh-users/zsh-autosuggestions
+    zsh-users/zsh-completions
+    history-substring-search
+    colored-man-pages
+    azafred/zsh-files
+    arialdomartini/oh-my-git
+    djui/alias-tips
+    tig
+    sudo
+EOBUNDLES
+
+antigen bundle https://gist.github.com/desyncr/e19af22b00fb1498d9836094e13d6ddb
+
+# OS specific plugins
+if [[ $CURRENT_OS == 'OS X' ]]; then
+    antigen bundle brew
+    antigen bundle brew-cask
+    antigen bundle gem
+    antigen bundle osx
+elif [[ $CURRENT_OS == 'Linux' ]]; then
+    antigen theme desyncr/void void
+    antigen bundle systemd
+    antigen bundle archlinux
+fi
+
+antigen theme bhilburn/powerlevel9k
+antigen apply

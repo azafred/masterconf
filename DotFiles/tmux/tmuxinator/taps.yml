@@ -1,0 +1,37 @@
+# ~/.tmuxinator/taps.yml
+
+name: taps
+root: ~/
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: logs
+
+# Controls whether the tmux session should be attached to automatically. Defaults to true.
+attach: false
+
+# Runs after everything. Use it to attach to tmux with custom options etc.
+post: tmux -CC attach -t taps
+
+windows:
+  - taps:
+      layout: main-vertical
+      panes:
+        - ssh -t shells02.ec2.hipmunk.com "python -m hipmunk.tools.logtap"
+        - ssh -t shells02.ec2.hipmunk.com "python -m hipmunk.tools.logtap --logtaplevels=warning,error,critical --logcategories=web_js_error,log"
+        - ssh -t shells02.ec2.hipmunk.com "python -m hipmunk.tools.logtap --logtaplevels=info,warning,error,critical --logcategories=log,load_search,book 108.60.121.46"
+

@@ -5,6 +5,7 @@ antigen bundle robbyrussell/oh-my-zsh lib/
 
 antigen bundles <<EOBUNDLES
     git
+    fzf
     git-extras
     tmux
     tmuxinator

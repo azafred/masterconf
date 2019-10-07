@@ -41,5 +41,5 @@ elif [[ $CURRENT_OS == 'Linux' ]]; then
     antigen bundle archlinux
 fi
 
-antigen theme bhilburn/powerlevel9k
+antigen theme romkatv/powerlevel10k
 antigen apply

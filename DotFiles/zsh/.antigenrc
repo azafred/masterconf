@@ -41,5 +41,11 @@ elif [[ $CURRENT_OS == 'Linux' ]]; then
     antigen bundle archlinux
 fi
 
-antigen theme romkatv/powerlevel10k
+
+if [[ $(zsh --version | awk '{print $2}') > 5.1.0 ]]; then
+    antigen theme romkatv/powerlevel10k
+else
+    antigen theme bhilburn/powerlevel9k
+fi
+
 antigen apply

@@ -19,6 +19,6 @@ SOURCE=${0%/*}
 [[ -f /etc/motd ]] && cat /etc/motd
 
 for f in $(find ~/.zsh/ -name '*.zsh'); do 
-    echo "Loading $f"; 
+    # echo "Loading $f";  ## For debugging!
     source $f; 
 done

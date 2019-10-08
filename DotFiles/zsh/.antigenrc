@@ -19,12 +19,10 @@ antigen bundles <<EOBUNDLES
     zsh-users/zsh-completions
     history-substring-search
     colored-man-pages
-    azafred/zsh-files
     arialdomartini/oh-my-git
     djui/alias-tips
     tig
     sudo
-    romkatv/powerlevel10k
 EOBUNDLES
 
 antigen bundle https://gist.github.com/desyncr/e19af22b00fb1498d9836094e13d6ddb

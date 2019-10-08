@@ -15,4 +15,9 @@ export LC_CTYPE="en_US.UTF-8"
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --inline-info"
 
+SOURCE=${0%/*}
+
+
+
 [[ -f /etc/motd ]] && cat /etc/motd
+

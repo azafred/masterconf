@@ -138,7 +138,7 @@ Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 " Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
 " Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-Plug 'fatih/vim-go', { 'tag': '*' }
+" Plug 'fatih/vim-go', { 'tag': '*' }
 Plug 'vim-scripts/indentpython.vim'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'godlygeek/tabular'
@@ -153,7 +153,7 @@ Plug 'tpope/vim-surround'
 Plug 'tomtom/tcomment_vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 
 " Initialize plugin system
 call plug#end()

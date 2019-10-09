@@ -15,12 +15,13 @@ function update {
     echo "Updating masterconf..."
     cd ~/masterconf && git pull && ./init.sh
     rm ~/.last_updated ; touch ~/.last_updated
+    cd ~/
 }
 
 if [ ! -f ~/.last_updated ]; then
-    update()
-elif [[ $(find "~/.last_updated" -mtime +5 -print) ]]; then
-    update()
+    update
+elif [[ $(find "/home/$USER/.last_updated" -mtime +5 -print) ]]; then
+    update
 fi
 
 # Load Antigen

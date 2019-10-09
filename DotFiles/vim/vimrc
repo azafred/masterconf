@@ -180,4 +180,5 @@ call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 call NERDTreeHighlightFile('rb', 'Magenta', 'none', '#ff00ff', '#151515')
 call NERDTreeHighlightFile('sh', 'Red', 'none', '#ff00ff', '#151515')
 map ; :FZF<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " END

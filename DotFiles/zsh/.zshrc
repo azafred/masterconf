@@ -18,7 +18,7 @@ export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border --inline-info"
 SOURCE=${0%/*}
 [[ -f /etc/motd ]] && cat /etc/motd
 
-for f in $(find ~/.zsh/ -name '*.zsh'); do 
+for f in $(find ~/.zsh/ -name '*.zsh' | grep -v .p10k); do 
     # echo "Loading $f";  ## For debugging!
     source $f; 
 done

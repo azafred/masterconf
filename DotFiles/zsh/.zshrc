@@ -1,7 +1,8 @@
 # Bootstrap Self...
 if [ ! -d ~/masterconf ]; then
    echo "Masterconf not found. Gitting it."
-   git clone --bare https://github.com/azafred/masterconf.git $HOME/masterconf || (echo "Failed to Clone" ; exit)
+   git clone https://github.com/azafred/masterconf.git $HOME/masterconf || (echo "Failed to Clone" ; exit)
+   cd ~/masterconf && ./init.sh
 fi
 
 # Load Antigen

@@ -11,7 +11,7 @@ if [ ! -d ~/.fzf ]; then
     ~/.fzf/install
 fi
 
-function update{
+function update {
     echo "Updating masterconf..."
     cd ~/masterconf && git pull && ./init.sh
     rm ~/.last_updated ; touch ~/.last_updated

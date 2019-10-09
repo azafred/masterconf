@@ -13,3 +13,5 @@ if type "keychain" > /dev/null; then
     . $HOME/.keychain/$HOSTNAME-sh
     [ -f $HOME/.keychain/$HOSTNAME-sh-gpg ] && . $HOME/.keychain/$HOSTNAME-sh-gpg
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

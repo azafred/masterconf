@@ -11,6 +11,18 @@ if [ ! -d ~/.fzf ]; then
     ~/.fzf/install
 fi
 
+function update{
+    echo "Updating masterconf..."
+    cd ~/masterconf && git pull && ./init.sh
+    rm ~/.last_updated ; touch ~/.last_updated
+}
+
+if [ ! -f ~/.last_updated ]; then
+    update()
+elif [[ $(find "~/.last_updated" -mtime +5 -print) ]]; then
+    update()
+fi
+
 # Load Antigen
 source ~/.zsh/antigen.zsh
 antigen init ~/.zsh/.antigenrc

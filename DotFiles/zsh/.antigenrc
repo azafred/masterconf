@@ -43,7 +43,7 @@ fi
 if [[ $(zsh --version | awk '{print $2}') > 5.1.0 ]]; then
     antigen theme romkatv/powerlevel10k
 else
-    antigen theme https://github.com/denysdovhan/spaceship-zsh-theme spaceship
+    antigen theme bhilburn/powerlevel9k powerlevel9k
 fi
 
 antigen apply

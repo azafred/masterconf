@@ -57,7 +57,7 @@ alias glog='git log --graph --oneline --all --decorate --color --pretty=format:"
 
 alias mge='cd ~/co/manage'
 alias mger='cd ~/co/manage-released'
-alias ans='de ~/co/manage/extra/ansible/'
+alias ans='cd ~/co/manage/extra/ansible/'
 
 
 # derp derp

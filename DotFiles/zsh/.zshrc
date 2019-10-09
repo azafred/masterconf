@@ -8,7 +8,7 @@ fi
 if [ ! -d ~/.fzf ]; then
     echo "Installing fzf..."
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-    ~/.fzf/install
+    ~/.fzf/install --key-bindings --completion --no-update-rc >/dev/null 2>&1
 fi
 
 function update {

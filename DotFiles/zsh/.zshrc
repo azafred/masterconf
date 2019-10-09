@@ -24,13 +24,8 @@ function update {
 #     update
 # fi
 cd ~/masterconf
-UPSTREAM=${1:-'@{u}'}
-LOCAL=$(git rev-parse @)
-REMOTE=$(git rev-parse "$UPSTREAM")
-BASE=$(git merge-base @ "$UPSTREAM")
-if [ $LOCAL = $BASE ]; then
-    update
-fi
+[ $(git rev-parse HEAD) = $(git ls-remote $(git rev-parse --abbrev-ref @{u} | \
+sed 's/\// /g') | cut -f1) ] && echo up to date || update
 cd ~/
 
 

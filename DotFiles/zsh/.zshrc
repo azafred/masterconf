@@ -18,11 +18,21 @@ function update {
     cd ~/
 }
 
-if [ ! -f ~/.last_updated ]; then
-    update
-elif [[ $(find "/home/$USER/.last_updated" -mtime +5 -print) ]]; then
+# if [ ! -f ~/.last_updated ]; then
+#     update
+# elif [[ $(find "/home/$USER/.last_updated" -mtime +5 -print) ]]; then
+#     update
+# fi
+cd ~/masterconf
+UPSTREAM=${1:-'@{u}'}
+LOCAL=$(git rev-parse @)
+REMOTE=$(git rev-parse "$UPSTREAM")
+BASE=$(git merge-base @ "$UPSTREAM")
+if [ $LOCAL = $BASE ]; then
     update
 fi
+cd ~/
+
 
 # Load Antigen
 source ~/.zsh/antigen.zsh

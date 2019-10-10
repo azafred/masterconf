@@ -19,6 +19,7 @@ rm -rf ~/.zsh
 rm -rf ~/.zshrc
 ln -s ~/masterconf/DotFiles/zsh ~/.zsh
 ln -s ~/masterconf/DotFiles/zsh/.zshrc ~/.zshrc
+ln -s ~/masterconf/DotFiles/zsh/.p10k.zsh ~/.p10k.zsh
 
 # Vim
 echo "-- linking ~/.vim directory and ~/.vimrc"

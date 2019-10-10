@@ -20,7 +20,10 @@ rm -rf ~/.zshrc
 rm -rf ~/.p10k.zsh
 ln -s ~/masterconf/DotFiles/zsh ~/.zsh
 ln -s ~/masterconf/DotFiles/zsh/.zshrc ~/.zshrc
-ln -s ~/masterconf/DotFiles/zsh/.p10k.zsh ~/.p10k.zsh
+if [[ $(zsh --version | awk '{print $2}') > 5.1.0 ]]; then
+    ln -s ~/masterconf/DotFiles/zsh/.p10k.zsh ~/.p10k.zsh
+fi
+
 
 # Vim
 echo "-- linking ~/.vim directory and ~/.vimrc"

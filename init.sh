@@ -17,6 +17,7 @@ export PATH=$PATH:~/bin
 echo "-- linking ~/.zsh directory and ~/.zshrc"
 rm -rf ~/.zsh
 rm -rf ~/.zshrc
+rm -rf ~/.p10k.zsh
 ln -s ~/masterconf/DotFiles/zsh ~/.zsh
 ln -s ~/masterconf/DotFiles/zsh/.zshrc ~/.zshrc
 ln -s ~/masterconf/DotFiles/zsh/.p10k.zsh ~/.p10k.zsh

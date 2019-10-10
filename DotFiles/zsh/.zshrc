@@ -1,3 +1,5 @@
+export TERM="xterm-256color"
+
 # Bootstrap Self...
 if [ ! -d ~/masterconf ]; then
    echo "Masterconf not found. Gitting it."

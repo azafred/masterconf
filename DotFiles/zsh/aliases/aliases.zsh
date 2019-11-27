@@ -95,4 +95,4 @@ alias cbc="bundle check"
 alias bce='cbc || (echo "Installing newly added gems..." && bi) && be'
 alias bci='cbc || echo "Installing newly added gems..." && bi'
 
-
+alias ecn='bundle exec /var/local/meraki/manage-released/script/elasticsearch/cluster_nodes.rb --cluster'

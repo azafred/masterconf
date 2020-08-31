@@ -186,5 +186,6 @@ function local_ppsql() {
   fi
 }
 
-
-
+function ar() {
+    cd ~/co/manage/extra/ansible/roles/$@
+}

@@ -56,3 +56,5 @@ for f in $(find ~/.zsh/ -name '*.zsh' | grep -v .p10k); do
     # echo "Loading $f";  ## For debugging!
     source $f; 
 done
+
+source /Users/frederic.vassard/Library/Preferences/org.dystroy.broot/launcher/bash/br

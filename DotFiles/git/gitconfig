@@ -3,8 +3,8 @@
 	authid = 72597281
 	token = bb2941603931e999b37f149646ca908e581b7272
 [user]
-	name = Fred Vassard
-	email = fred@meraki.com
+	name = Frederic Vassard
+	email = fred@meraki.net
 [core]
 	excludesfile = /opt/boxen/config/git/gitignore
 	quotepath = false
